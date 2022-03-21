@@ -11,8 +11,6 @@ function getSumof2element(arr, target) { //Time complexity O(n^2), Space complex
      })
      return result
 }
-console.log(getSumof2element(array,targetSum));
-
 function getSumof2element2(arr, target) { //Time complexity O(n), Space complexity O(1)
      let result = []
      let i = 0;
@@ -32,4 +30,25 @@ function getSumof2element2(arr, target) { //Time complexity O(n), Space complexi
      }
      return result;
 }
-console.log(getSumof2element2(array, targetSum))
+function getSumof3element(arr, target) {
+     let result = []
+     let i = 0;
+     let j = arr.length - 1;
+     while (i + 1 < j) {
+          k = i + 1;
+          s = arr[i] + arr[k] + arr[j];
+          if (s == target) {
+               result.push([arr[i], arr[k], arr[j]])
+               i++;
+               j--;
+          }
+          else {
+               if (s < target)
+                    i++;
+               else
+                    j--;
+          }
+     }
+     return result;
+}
+console.log(getSumof3element(array,5))
