@@ -2,6 +2,7 @@ let array = [-1, 0, 2, 3, 5, 8]
 
 let targetSum = 2
 
+console.log(array)
 function getSumof2element(arr, target) { //Time complexity O(n^2), Space complexity O(n)
      let result = []
      let a = [...arr]
@@ -33,22 +34,26 @@ function getSumof2element2(arr, target) { //Time complexity O(n), Space complexi
 function getSumof3element(arr, target) {
      let result = []
      let i = 0;
-     let j = arr.length - 1;
-     while (i + 1 < j) {
-          k = i + 1;
-          s = arr[i] + arr[k] + arr[j];
-          if (s == target) {
-               result.push([arr[i], arr[k], arr[j]])
-               i++;
-               j--;
-          }
-          else {
-               if (s < target)
-                    i++;
-               else
+     while (i + 1 < arr.length - 1) {
+          let k = i + 1;
+          let j = arr.length - 1;
+          while (k < j) {
+               s = arr[i] + arr[k] + arr[j];
+               if (s == target) {
+                    result.push([arr[i], arr[k], arr[j]])
+                    k++;
                     j--;
+               }
+               else {
+                    if (s < target)
+                         k++;
+                    else
+                         j--;
+               }
           }
+          i++;
+          
      }
      return result;
 }
-console.log(getSumof3element(array,5))
+console.log(getSumof3element(array, 11))
