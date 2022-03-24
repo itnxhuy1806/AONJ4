@@ -1,25 +1,23 @@
 function getSumof3element(arr, target) {
      let result = []
-     let i = 0;
-     while (i + 1 < arr.length - 1) {
-          let k = i + 1;
-          let j = arr.length - 1;
-          while (k < j) {
-               s = arr[i] + arr[k] + arr[j];
-               if (s == target) {
-                    result.push([arr[i], arr[k], arr[j]])
-                    k++;
-                    j--;
+     let left = 0;
+     while (left + 1 < arr.length - 1) {
+          let mid = left + 1;
+          let right = arr.length - 1;
+          while (mid < right) {
+               sum = arr[left] + arr[mid] + arr[right];
+               if (sum == target) {
+                    result.push([arr[left], arr[mid], arr[right]])
+                    mid++;
+                    right--;
                }
-               else {
-                    if (s < target)
-                         k++;
+               else
+                    if (sum < target)
+                         mid++;
                     else
-                         j--;
-               }
+                         right--;
           }
-          i++;
-
+          left++;
      }
      return result;
 }
